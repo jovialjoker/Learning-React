@@ -3,6 +3,8 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import classes from "./AddUser.module.css";
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../Helpers/Wrapper";
+
 const AddUser = ({ onAdd }) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
@@ -37,8 +39,9 @@ const AddUser = ({ onAdd }) => {
   const okayHandler = () => {
     setShowModal(!showModal);
   };
+
   return (
-    <>
+    <Wrapper>
       {showModal && (
         <ErrorModal
           title={error.title}
@@ -65,7 +68,7 @@ const AddUser = ({ onAdd }) => {
           <Button type="submit">Submit</Button>
         </form>
       </Card>
-    </>
+    </Wrapper>
   );
 };
 export default AddUser;
